@@ -8,8 +8,9 @@ LABEL org.opencontainers.image.description="Layer used for new dependencies"
 RUN     apt-get update  && \
 	echo "Use wget to download some stuff"  && \
 	apt -y install --no-install-recommends wget && \
-	wget http://http.us.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20250419_all.deb && \
+	wget http://deb.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20250419_all.deb && \
 	apt -y install --no-install-recommends ./*.deb && \
+	update-ca-certificates && \
 	apt-get -y remove wget && \
 	apt-get -y autoremove && \
 	rm /*.deb && \
