@@ -3,6 +3,9 @@ LABEL MAINTAINER="Salvador E. Tropea <set@ieee.org>"
 LABEL Description="KiCad 9 w/KiBot and other automation scripts"
 LABEL org.opencontainers.image.description="KiCad 9 w/KiBot and other automation scripts"
 
+# Copy the fixed dl_deb.py script
+COPY dl_deb.py /usr/bin/
+
 # Install all the tools, dependencies are already installed
 RUN     apt-get update  && \
 	dl_deb.py INTI-CMNB/KiBoM && \
